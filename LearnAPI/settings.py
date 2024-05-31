@@ -33,9 +33,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1mnu^(jj_k^78qiki26xyuw4&b=@b*=dmxi&8!v0iwz9((7#$9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://3000-graciekan21-reactpp5-mgt0jc1m5vx.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net']
 
 
 # Application definition
