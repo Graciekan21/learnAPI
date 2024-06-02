@@ -37,6 +37,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net']
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net']
+
 
 # Application definition
 
