@@ -1,4 +1,4 @@
-"""drf_api URL Configuration
+"""LearnAPI URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -22,4 +22,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('', include('profiles.urls')),
     path('', include('posts.urls')),
+    path('', include('comments.urls')),
 ]
