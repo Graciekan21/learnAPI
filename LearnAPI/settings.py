@@ -58,7 +58,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net',
                 'learnapi-91da03df4b64.herokuapp.com'
