@@ -60,11 +60,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net',
+                'learnapi-91da03df4b64.herokuapp.com'
+                ]
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net']
-
-ALLOWED_HOSTS = ['localhost', '<your_app_name>.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['http://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net/'] 
 
 # Application definition
 
