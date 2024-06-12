@@ -64,7 +64,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
    os.environ.get('ALLOWED_HOST'),
    'localhost',
-   '8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net'
+   '8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net',
+   'learnapi-91da03df4b64.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = ['http://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net/'] 
