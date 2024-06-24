@@ -60,7 +60,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = [
    os.environ.get('ALLOWED_HOST'),
    'localhost',
@@ -123,7 +123,7 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
-    
+
     CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'LearnAPI.urls'
