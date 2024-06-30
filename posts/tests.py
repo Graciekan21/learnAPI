@@ -5,6 +5,7 @@ from rest_framework.test import APITestCase
 
 
 class PostListViewTests(APITestCase):
+    """post test cases"""
     def setUp(self):
         User.objects.create_user(username='adam', password='pass')
 
