@@ -75,7 +75,9 @@ ALLOWED_HOSTS = [
 ]
 
 
-
+# Allow all origins
+CORS_ALLOW_ALL_ORIGINS = True
+"""
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [os.environ.get('CLIENT_ORIGIN')]
 
@@ -83,7 +85,7 @@ CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*\.codeinstitute-ide\.net$","https://
  
 CSRF_TRUSTED_ORIGINS = ['http://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net/'] 
 CORS_ALLOW_CREDENTIALS = True
-
+"""
 # Application definition
 
 INSTALLED_APPS = [
