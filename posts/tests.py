@@ -54,7 +54,7 @@ class PostDetailViewTests(APITestCase):
         response = self.client.put('/posts/1/', {'title': 'a new title'})
         post = Post.objects.filter(pk=1).first()
         self.assertEqual(post.title, 'a new title')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_user_cant_update_another_users_post(self):
         self.client.login(username='adam', password='pass')
