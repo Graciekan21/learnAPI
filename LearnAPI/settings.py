@@ -79,7 +79,7 @@ ALLOWED_HOSTS = [
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [os.environ.get('CLIENT_ORIGIN')]
 
-CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*\.codeinstitute-ide\.net$","https://3000-graciekan21-arts-y02br5jowg7.ws.codeinstitute-ide.net/",] 
+CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*\.codeinstitute-ide\.net$","https://learnapi-91da03df4b64.herokuapp.com","https://3000-graciekan21-arts-y02br5jowg7.ws.codeinstitute-ide.net/",] 
  
 CSRF_TRUSTED_ORIGINS = ['http://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net/'] 
 CORS_ALLOW_CREDENTIALS = True
