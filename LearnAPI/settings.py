@@ -16,7 +16,9 @@ import dj_database_url
 
 if os.path.exists('env.py'):
     import env
-   
+
+
+
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }  
@@ -24,6 +26,7 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")   
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [(
@@ -37,13 +40,15 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': '%d %b %y',
 }
 
+
+
 if 'DEV' not in os.environ:
     REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
         'rest_framework.renderers.JSONRenderer',
     ]
 
-      
-        
+
+
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
@@ -51,7 +56,7 @@ JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JWT_AUTH_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'LearnAPI.serializers.CurrentUserSerializer'
+    'USER_DETAILS_SERIALIZER': 'learnapi.serializers.CurrentUserSerializer'
 }
 
 # Quick-start development settings - unsuitable for production
@@ -62,28 +67,32 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEV' in os.environ
+# DEBUG = True
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'learnapi-91da03df4b64.herokuapp.com']
 
-ALLOWED_HOSTS = [
-   os.environ.get('ALLOWED_HOST'),
-   'localhost',
-   '8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net',
-   'learnapi-91da03df4b64.herokuapp.com'
-]
+# Add Render.com URL to allowed hosts
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
-
-# Allow all origins
-CORS_ALLOW_ALL_ORIGINS = True
-"""
 if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [os.environ.get('CLIENT_ORIGIN')]
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN_DEV'),
+        os.environ.get('CLIENT_ORIGIN')
+    ]
 
-CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*\.codeinstitute-ide\.net$","https://learnapi-91da03df4b64.herokuapp.com","https://3000-graciekan21-arts-y02br5jowg7.ws.codeinstitute-ide.net/",] 
- 
-CSRF_TRUSTED_ORIGINS = ['http://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net/'] 
+    
+         
 CORS_ALLOW_CREDENTIALS = True
-"""
+Access-Control-Allow-Origin ["*"]
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -201,9 +210,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
     
-      
+
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
