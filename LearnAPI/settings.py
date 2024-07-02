@@ -90,7 +90,10 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     
          
 CORS_ALLOW_CREDENTIALS = True
-Access-Control-Allow-Origin ["*"]
+CORS_ALLOWED_ORIGIN_REGEXES = [
+        "*",
+    ]
+
 
 
 # Application definition
