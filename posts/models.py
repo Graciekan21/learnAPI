@@ -28,11 +28,11 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
-
-    image_filter = models.CharField(
-        upload_to='images/', default='../media/images/default_post_pexels-steve-8603638.jpg', blank=True
+    image = models.ImageField(
+        upload_to='images/', default='../default_profile_qdjgyp'
     )
 
+    
     class Meta:
         ordering = ['-created_at']
 
