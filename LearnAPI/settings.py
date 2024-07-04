@@ -68,9 +68,14 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
+    '*',
     os.environ.get('ALLOWED_HOST', ''),
     'localhost',
     '127.0.0.1',
+    os.environ.get('CLIENT_ORIGIN'),
+    os.environ.get('CLIENT_ORIGIN_DEV'),
+    "https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net/"
+
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -84,6 +89,10 @@ if 'CLIENT_ORIGIN' in os.environ:
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     CORS_ALLOWED_ORIGINS.append(os.environ.get('CLIENT_ORIGIN_DEV'))
+
+if "CLIENT ORIGIN" in os.environ: CORS_ALLOWED_ORIGINS = [os.environ.get("CLIENT_ORIGIN")]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*I.codeinstitute-ide\.net$",]
 
 CORS_ALLOW_CREDENTIALS = True
 
