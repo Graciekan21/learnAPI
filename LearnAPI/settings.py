@@ -66,6 +66,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = 'DEV' in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '*',
@@ -208,12 +209,11 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
-
+   
 USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
+                  
+USE_TZ = True    
+    
 
 
 # Static files (CSS, JavaScript, Images)
@@ -225,6 +225,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME')
 
 
 # Default primary key field type
