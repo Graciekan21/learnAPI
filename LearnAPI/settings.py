@@ -29,13 +29,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")   
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [(
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication'
         if 'DEV' in os.environ
         else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
-    )],
-    'DEFAULT_PAGINATION_CLASS':
-        'rest_framework.pagination.PageNumberPagination',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
     'DATETIME_FORMAT': '%d %b %y',
 }
@@ -47,7 +49,15 @@ if 'DEV' not in os.environ:
         'rest_framework.renderers.JSONRenderer',
     ]
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+
+
+ACCOUNT_USERNAME_REQUIRED = True
 
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
@@ -73,9 +83,9 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST', ''),
     'localhost',
     '127.0.0.1',
-   # os.environ.get('CLIENT_ORIGIN'),
-   # os.environ.get('CLIENT_ORIGIN_DEV'),
-   "https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net"
+    os.environ.get('CLIENT_ORIGIN'),
+    os.environ.get('CLIENT_ORIGIN_DEV'),
+   "https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net/",
 
 ]
 
@@ -92,6 +102,10 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     CORS_ALLOWED_ORIGINS.append(os.environ.get('CLIENT_ORIGIN_DEV'))
 
 if "CLIENT ORIGIN" in os.environ: CORS_ALLOWED_ORIGINS = [os.environ.get("CLIENT_ORIGIN")]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net',
+]
 
 CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*I.codeinstitute-ide\.net$",]
 
