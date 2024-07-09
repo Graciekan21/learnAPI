@@ -73,9 +73,9 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST', ''),
     'localhost',
     '127.0.0.1',
-    os.environ.get('CLIENT_ORIGIN'),
-    os.environ.get('CLIENT_ORIGIN_DEV'),
-    "https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net/"
+   # os.environ.get('CLIENT_ORIGIN'),
+   # os.environ.get('CLIENT_ORIGIN_DEV'),
+   "https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net"
 
 ]
 
@@ -224,10 +224,9 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = BASE_DIR / "staticfiles"
-       
-    
+     
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
