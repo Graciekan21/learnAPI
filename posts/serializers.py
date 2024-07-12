@@ -54,6 +54,8 @@ class PostSerializer(serializers.ModelSerializer):
             'like_id', 'likes_count', 'comments_count',
         ]
 @receiver(post_save, sender=Post)
-def create_post_notification(sender, instance, created, **kwargs):
+def create_post_notifications(sender, instance, created, **kwargs):
     if created:
-        Notification.objects.create(user=instance.owner, message=f'New post: {instance.title}')
+        users = User.objects.all()  # Replace with how you fetch your users
+        for user in users:
+            Notification.objects.create(user=user, message=f'New post: {instance.title}')
