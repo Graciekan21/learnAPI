@@ -4,6 +4,7 @@ from likes.models import Like
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from notifications.models import Notification
+from django.contrib.auth.models import User
 
 class PostSerializer(serializers.ModelSerializer):
     """
