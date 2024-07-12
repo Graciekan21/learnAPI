@@ -3,7 +3,7 @@ from posts.models import Post
 from likes.models import Like
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-import notifications
+from notifications.models import Notification
 
 class PostSerializer(serializers.ModelSerializer):
     """
