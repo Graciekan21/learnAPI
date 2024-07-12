@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class PostSerializer(serializers.ModelSerializer):
     """
@@ -51,3 +52,7 @@ class PostSerializer(serializers.ModelSerializer):
             'title', 'content', 'image', 'image_filter',
             'like_id', 'likes_count', 'comments_count',
         ]
+@receiver(post_save, sender=Post)
+def create_post_notification(sender, instance, created, **kwargs):
+    if created:
+        Notifications.objects.create(user=instance.owner, message=f'New post: {instance.title}')
