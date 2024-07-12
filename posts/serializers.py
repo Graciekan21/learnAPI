@@ -3,6 +3,7 @@ from posts.models import Post
 from likes.models import Like
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+import notifications
 
 class PostSerializer(serializers.ModelSerializer):
     """
@@ -55,4 +56,4 @@ class PostSerializer(serializers.ModelSerializer):
 @receiver(post_save, sender=Post)
 def create_post_notification(sender, instance, created, **kwargs):
     if created:
-        Notifications.objects.create(user=instance.owner, message=f'New post: {instance.title}')
+        Notification.objects.create(user=instance.owner, message=f'New post: {instance.title}')
