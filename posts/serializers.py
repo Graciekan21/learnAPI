@@ -59,4 +59,8 @@ def create_post_notifications(sender, instance, created, **kwargs):
     if created:
         users = User.objects.all()  # Replace with how you fetch your users
         for user in users:
-            Notification.objects.create(user=user, message=f'New post: {instance.title}')
+            Notification.objects.create(
+                user=user,
+                message=f'New post: {instance.title}',
+                post_id=instance.id  # Include the post_id when creating the notification
+            )
