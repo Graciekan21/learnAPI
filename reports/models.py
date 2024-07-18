@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 
 class Report(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    reported_content = models.TextField()
-    reason = models.TextField()
+    reported_content = models.TextField(default='1')
+    reason = models.TextField(default='1')
     timestamp = models.DateTimeField(auto_now_add=True)
     is_resolved = models.BooleanField(default=False)
 
