@@ -22,6 +22,6 @@ class ReportViewSet(viewsets.ModelViewSet):
         except Comment.DoesNotExist:
             return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
         
-        reports = Report.objects.filter(comment=comment)
+        reports = Report.objects.filter(reported_content==comment)
         serializer = ReportSerializer(reports, many=True)
         return Response(serializer.data)
