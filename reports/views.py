@@ -2,7 +2,8 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from .models import Report, Comment
+from .models import Report
+from comments.models import Comment
 from .serializers import ReportSerializer
 
 class ReportViewSet(viewsets.ModelViewSet):
