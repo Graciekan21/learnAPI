@@ -61,9 +61,9 @@ The Kanban board can be viewed to see more information on the project cards. All
 
 * As a developer, I want to create API views for artists so that they are accessible from the front end.
 
-**Contact**
-
-* As a developer, I want to create a contact model and API view so that users can reach out to the site owner with issues.
+**reports**
+* As a user, I want to create a report for a post
+* As a user, i want to create a form to report a postS
 
 **Posts**
 
@@ -90,10 +90,7 @@ The base project was created, and a virtual environment was set up with all nece
 User Story:
 
 `As a developer, I need to create the Google Cloud bucket and establish the connection to the project so that static images can be uploaded by users.`
-
-Implementation:
-A Google Cloud bucket was created, and a service account was set up to allow image uploads. The service account was given create and read IAM roles to ensure it had only the minimum required permissions.
-
+       
 User Story:
 `As a user, I can create a new account so that I can access all the features for signed-up users.`
 
@@ -107,15 +104,15 @@ Implementation:
 Endpoint: /arts/
 
 Methods:
-* POST - Used to create an artist
-* GET - Used to retrieve a list of artists
+* POST - Used to create an arts
+* GET - Used to retrieve a list of arts
 
 Endpoint: /arts/<int:pk>/
 
 Methods:
-* GET - Used to view single artist profile
-* PUT - Used to update an artist profile
-* DELETE - Used to delete an artist profile
+* GET - Used to view single art profile
+* PUT - Used to update an art profile
+* DELETE - Used to delete an art profile
 
 User Story:
 
@@ -124,18 +121,18 @@ User Story:
 
 Implementation:
 
-Endpoint: /contacts/
+Endpoint: //
 
 Methods:
-* POST - Used to create contact request
-* GET - Used to get a list of contact requests
+* POST - Used to create notifications request
+* GET - Used to get a list of notifications requests
 
-Endpoint: /contacts/<int:pk>/
+Endpoint: /notifications/<int:pk>/
 
 Methods:
-* GET - Get a single contact request
-* PUT - Used to update a single contact request
-* DELETE - Used to delete a contact request
+* GET - Get a single notification request
+* PUT - Used to update a single notification request
+* DELETE - Used to delete a notification  request
 
 User Story:
 
@@ -204,7 +201,7 @@ GCP IAM permissions for the service account were configured for create and read-
     * Main framework used for application creation
 * Django REST Framework
     * Framework used for creating API
-* Google Cloud Platform
+* Cloudinary Platform
     * Used for static image hosting
 * Heroku
     * Used for hosting the application
@@ -221,31 +218,30 @@ GCP IAM permissions for the service account were configured for create and read-
 <summary> Details of packages </summary>
 
 
-* dj-database-url==1.0.0
-    * Used to parse the DATABASE_URL connection settings
-* dj-rest-auth==2.2.5
-    * Used with auth system
-* Django==4.1.1
-    * Main framework used to start the project
-* django-allauth==0.50.0
-    * Used for authentication
-* django-cors-headers==3.13.0
-    * Used for Cross-Origin Resource Sharing (CORS) headers to responses
-* django-filter==22.1
-    * Used to filter API results in serializers
-* django-storages==1.13.1
-    * Used to help connect with the google cloud storage bucket
-* djangorestframework==3.13.1
-    * Framework used to build the API endpoints
-* djangorestframework-simplejwt==5.2.0
-    * Used with djange rest framework to create access tokens for authentication
-* gunicorn==20.1.0
-    * Used for deployment of WSGI applications
-* Pillow==9.2.0
-    * Imaging Libray - used for image uploading
-* psycopg2==2.9.3
-    * PostgreSQL database adapter to allow deployed application to perform crud on the postgresql db
-* PyJWT==2.5.0
+* asgiref==3.6.0
+cloudinary==1.36.0
+cryptography==3.4.8
+dj-database-url==0.5.0
+dj-rest-auth==2.1.9
+Django==4.2
+django-allauth==0.54.0
+django-cloudinary-storage==0.3.0
+django-cors-headers==4.3.1
+django-filter==2.4.0
+djangorestframework==3.15.1
+djangorestframework-simplejwt==4.7.2
+gunicorn==22.0.0
+oauthlib==3.1.1
+Pillow==8.2.0
+psycopg2==2.9.9
+PyJWT==2.1.0
+python3-openid==3.2.0
+pytz==2021.1
+requests-oauthlib==1.3.0
+sqlparse==0.4.1
+whitenoise==6.7.0
+
+
     * For creating the Python Json Web Tokens for authentication
 
 Installed as package dependcies with above installations:
@@ -255,10 +251,34 @@ Installed as package dependcies with above installations:
 
 ## Testing
 
-Unit tests in posts app
 
-![Post Tests](https://raw.githubusercontent.com/Graciekan21/LearnAPI/main/readme/unit-test.PNG)
+**Validator Results**
 
+All folders were run through flake8. Several issues appeared with various reasons, lines too long, blank spaces, indentation and docstrings.
+
+All issues were resolved with the exception of lines too long in migration files (these are auto generated so I did not fix) and the auth validator lines in the settings.py which seem to be unbreakable but are framework code.
+
+A warning appeared for env.py being imported but unused although this is being used in the development version, so this was ignored.
+
+
+![Post Tests](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/unit-test.PNG)
+![comments](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/comments_validator.PNG)
+
+![followers](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/contacts_validation.PNG)
+
+![learnapi](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/settings_validation.PNG)
+
+![notifications](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/followers_validation.PNG)
+
+![likes](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/likes_validation.PNG)
+
+![posts](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/posts_validator.PNG)
+
+![profiles](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/profiles_validation.PNG)
+
+![reports](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/reviews_validator.PNG)
+      
+        
 The API's were tested locally during development but the core testing was done as part of the front end repos and testing to the real API's manually via form inputs and page loads.
 
 The results can be found in [Body Doodles](https://github.com/Gareth-McGirr/body-doodles)
