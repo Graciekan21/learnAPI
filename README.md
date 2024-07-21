@@ -289,7 +289,8 @@ A warning about env.py being imported but unused was ignored because it is used 
 
 ![settings.py](/readme/settings.validation.png)
 ![env.py](/readme/env.validation.png)
-
+ 
+ There is 2 errors i see in the Terminal PROBLEMS but i added a gitpod.yml file but it don't change anything,i followed the the intrustion in the terminal
 
 <hr>
 <br>
