@@ -185,8 +185,10 @@ Methods:
 * DELETE - Used to delete a profile
 
 ## Database Design
+I used Lucid to generate the database diagrams
+![lucid](https://lucid.app/lucidchart)
 
-![ER Diagram](https://lucid.app/lucidchart/a7f04448-2b4c-43d0-bb9a-f30b26363064/edit?viewport_loc=-1730%2C-711%2C1585%2C642%2C0_0&invitationId=inv_432a3a2b-3be2-4e5e-9ef6-ac66def26e72)
+![database Diagram](/readme/database_daigrams.png)
 
 ## Security
 
@@ -219,27 +221,27 @@ GCP IAM permissions for the service account were configured for create and read-
 
 
 * asgiref==3.6.0
-cloudinary==1.36.0
-cryptography==3.4.8
-dj-database-url==0.5.0
-dj-rest-auth==2.1.9
-Django==4.2
-django-allauth==0.54.0
-django-cloudinary-storage==0.3.0
-django-cors-headers==4.3.1
-django-filter==2.4.0
-djangorestframework==3.15.1
-djangorestframework-simplejwt==4.7.2
-gunicorn==22.0.0
-oauthlib==3.1.1
-Pillow==8.2.0
-psycopg2==2.9.9
-PyJWT==2.1.0
-python3-openid==3.2.0
-pytz==2021.1
-requests-oauthlib==1.3.0
-sqlparse==0.4.1
-whitenoise==6.7.0
+* cloudinary==1.36.0
+* cryptography==3.4.8
+* dj-database-url==0.5.0
+* dj-rest-auth==2.1.9
+* Django==4.2
+* django-allauth==0.54.0
+* django-cloudinary-storage==0.3.0
+* django-cors-headers==4.3.1
+* django-filter==2.4.0
+* djangorestframework==3.15.1
+* djangorestframework-simplejwt==4.7.2
+* gunicorn==22.0.0
+* oauthlib==3.1.1
+* Pillow==8.2.0
+* psycopg2==2.9.9
+* PyJWT==2.1.0
+* python3-openid==3.2.0
+* pytz==2021.1
+* requests-oauthlib==1.3.0
+* sqlparse==0.4.1
+* whitenoise==6.7.0
 
 
     * For creating the Python Json Web Tokens for authentication
@@ -287,11 +289,11 @@ All issues were resolved except for lines too long in Settings.py and in env.py,
 
 A warning about env.py being imported but unused was ignored because it is used in the development version.
 
-![settings.py](/readme/settings.validation.png)
-![env.py](/readme/env.validation.png)
+![settings.py](/readme/settings_validation.png)
+![env.py](/readme/env_validation.png)
  
  There is 2 errors i see in the Terminal PROBLEMS but i added a gitpod.yml file but it don't change anything,i followed the the intrustion in the terminal
-
+![terminal error](/readme/terminal_error.png)
 <hr>
 <br>
 
