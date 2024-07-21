@@ -287,8 +287,10 @@ All issues were resolved except for lines too long in Settings.py and in env.py,
 
 A warning about env.py being imported but unused was ignored because it is used in the development version.
 
-![setting.py](/readme/settings_validator.PNG)
-![url.py](/readme/env_validator.PNG)
+![settings.py](/readme/settings.validation.png)
+![env.py](/readme/env.validation.png)
+
+
 <hr>
 <br>
 
