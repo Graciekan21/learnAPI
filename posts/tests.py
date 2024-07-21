@@ -3,9 +3,9 @@ from .models import Post
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-     
-class PostListViewTests(APITestCase):   
-    def setUp(self):                  
+
+class PostListViewTests(APITestCase):
+    def setUp(self):
         User.objects.create_user(username='adam', password='pass')
 
     def test_can_list_posts(self):

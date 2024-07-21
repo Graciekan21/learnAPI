@@ -6,6 +6,7 @@ from .models import Report
 from comments.models import Comment
 from .serializers import ReportSerializer
 
+
 class ReportViewSet(viewsets.ModelViewSet):
     serializer_class = ReportSerializer
     permission_classes = [IsAuthenticated]
@@ -13,15 +14,17 @@ class ReportViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.is_staff:
             return Report.objects.all().order_by('-timestamp')
-        return Report.objects.filter(user=self.request.user).order_by('-timestamp')
+        return Report.objects.filter(user=self.request.user).order_by
+        ('-timestamp')
 
     @action(detail=True, methods=['get'])
     def comment_reports(self, request, pk=None):
         try:
             comment = Comment.objects.get(pk=pk)
         except Comment.DoesNotExist:
-            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
-        
+            return Response({"detail": "Not found."},
+                            status=status.HTTP_404_NOT_FOUND)
+
         reports = Report.objects.filter(reported_content=comment)
         serializer = ReportSerializer(reports, many=True)
         return Response(serializer.data)

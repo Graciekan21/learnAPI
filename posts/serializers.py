@@ -6,6 +6,7 @@ from django.dispatch import receiver
 from notifications.models import Notification
 from django.contrib.auth.models import User
 
+
 class PostSerializer(serializers.ModelSerializer):
     """
     Serializer for the post model
@@ -18,7 +19,6 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
-
 
     def validate_image(self, value):
         if value.size > 5 * 1024 * 1024:
@@ -54,6 +54,8 @@ class PostSerializer(serializers.ModelSerializer):
             'title', 'content', 'image', 'image_filter',
             'like_id', 'likes_count', 'comments_count',
         ]
+
+
 @receiver(post_save, sender=Post)
 def create_post_notifications(sender, instance, created, **kwargs):
     if created:
@@ -62,5 +64,6 @@ def create_post_notifications(sender, instance, created, **kwargs):
             Notification.objects.create(
                 user=user,
                 message=f'New post: {instance.title}',
-                post_id=instance.id  # Include the post_id when creating the notification
+                post_id=instance.id
+                # Include the post_id when creating the notification
             )

@@ -9,5 +9,6 @@ router.register(r'reports', ReportViewSet, basename='report')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('comments/<int:pk>/reports/', ReportViewSet.as_view({'get': 'comment_reports'}), name='comment-reports')
+    path('comments/<int:pk>/reports/', ReportViewSet.as_view
+         ({'get': 'comment_reports'}), name='comment-reports')
 ]

@@ -9,7 +9,6 @@ from .serializers import ProfileSerializer
 from LearnAPI.permissions import IsOwnerOrReadOnly
 
 
-
 class ProfileList(generics.ListAPIView):
     """
     List all profiles.
@@ -49,4 +48,3 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
         following_count=Count('owner__following', distinct=True)
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
-    

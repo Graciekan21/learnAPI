@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
 class Post(models.Model):
     """
     Post model, related to 'owner', i.e. a User instance.
@@ -35,7 +34,6 @@ class Post(models.Model):
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
     )
-
 
     class Meta:
         ordering = ['-created_at']
