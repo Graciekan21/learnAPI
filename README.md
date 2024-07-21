@@ -254,30 +254,13 @@ Installed as package dependcies with above installations:
 
 **Validator Results**
 
-All folders were run through flake8. Several issues appeared with various reasons, lines too long, blank spaces, indentation and docstrings.
+All folders were run through . Several issues appeared with various reasons, lines too long, blank spaces, indentation, white space and expect 2 lines.
 
 All issues were resolved with the exception of lines too long in migration files (these are auto generated so I did not fix) and the auth validator lines in the settings.py which seem to be unbreakable but are framework code.
 
 A warning appeared for env.py being imported but unused although this is being used in the development version, so this was ignored.
-
-
-![Post Tests]()
-![comments]()
-
-![followers]()
-
-![learnapi]()
-
-![notifications]()
-
-![likes]()
-
-![posts]()
-
-![profiles]()
-
-![reports]()
       
+ 
         
 The API's were tested locally during development but the core testing was done as part of the front end repos and testing to the real API's manually via form inputs and page loads.
 
