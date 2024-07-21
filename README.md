@@ -186,7 +186,7 @@ Methods:
 
 ## Database Design
 
-![ER Diagram](https://lucid.app/lucidchart/a7f04448-2b4c-43d0-bb9a-f30b26363064/edit?viewport_loc=-1730%2C-711%2C1585%2C642%2C0_0&invitationId=inv_432a3a2b-3be2-4e5e-9ef6-ac66def26e72)
+![DataBase Design](https://lucid.app/lucidchart/a7f04448-2b4c-43d0-bb9a-f30b26363064/edit?viewport_loc=-1730%2C-711%2C1585%2C642%2C0_0&invitationId=inv_432a3a2b-3be2-4e5e-9ef6-ac66def26e72)
 
 ## Security
 
@@ -274,7 +274,7 @@ All folders were checked using CI python Linter, revealing several issues such a
 |---------------|-----------|-------------------|------|
 | comments      | All files | CI python Linter  | Pass |
 | followers     | All files | CI python Linter  | Pass |
-| learnapi      | All file  |  CI python Linter | Pass |
+| learnapi      | All file  | CI python Linter  | Pass |
 | likes         | All file  | CI python Linter  | Pass |
 | notifications | All files | CI python Linter  | Pass |
 | posts         | All files | CI python Linter  | Pass |
@@ -287,8 +287,8 @@ All issues were resolved except for lines too long in Settings.py and in env.py,
 
 A warning about env.py being imported but unused was ignored because it is used in the development version.
 
-![setting.py](https://raw.githubusercontent.com/Graciekan21/learnapi/main/readme/settings_validator.PNG)
-![url.py](https://raw.githubusercontent.com/Graciekan21/learnapi/main/readme/url_validator.PNG)
+![setting.py](/readme/settings_validator.PNG)
+![url.py](/readme/env_validator.PNG)
 <hr>
 <br>
 
