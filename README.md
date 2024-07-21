@@ -186,7 +186,7 @@ Methods:
 
 ## Database Design
 
-![ER Diagram]()
+![ER Diagram](https://lucid.app/lucidchart/a7f04448-2b4c-43d0-bb9a-f30b26363064/edit?viewport_loc=-1730%2C-711%2C1585%2C642%2C0_0&invitationId=inv_432a3a2b-3be2-4e5e-9ef6-ac66def26e72)
 
 ## Security
 
@@ -264,23 +264,31 @@ A warning appeared for env.py being imported but unused although this is being u
         
 The API's were tested locally during development but the core testing was done as part of the front end repos and testing to the real API's manually via form inputs and page loads.
 
-The results can be found in []()
+The results can be found in [Graciekan-learnapi](https://github.com/Graciekan21/learnAPI)
 
 **Validator Results**
 
 All folders were checked using CI python Linter, revealing several issues such as lines too long, blank spaces, indentation, and missing docstrings.
 
+|  Folders | Files               |      Validator          | Pass    |
+|--------|----------------------------|--------------------------------|
+| comments | All files | CI python Linter | Pass |
+| followers | All files | CI python Linter | Pass |
+| learnapi | All file |  CI python Linter  | Pass |
+| likes  |  All file | CI python Linter | Pass |
+| notifications | All files | CI python Linter | Pass |
+| posts | All files | CI python Linter | Pass |
+| profiles | All files | CI python Linter | Pass |
+| reports | All files | CI python Linter | Pass |
+
+
+**Bugs and their fixes**
 All issues were resolved except for lines too long in Settings.py and in env.py, files (since these are auto-generated, they were not fixed) and the auth validator lines in settings.py, is unbreakable.
 
 A warning about env.py being imported but unused was ignored because it is used in the development version.
 
-
-
-
-**Bugs and their fixes**
-
-
-
+![setting.py](https://raw.githubusercontent.com/Graciekan21/learnapi/main/readme/settings_validator.PNG)
+![url.py](https://raw.githubusercontent.com/Graciekan21/learnapi/main/readme/url_validator.PNG)
 <hr>
 <br>
 
