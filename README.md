@@ -270,16 +270,16 @@ The results can be found in [Graciekan-learnapi](https://github.com/Graciekan21/
 
 All folders were checked using CI python Linter, revealing several issues such as lines too long, blank spaces, indentation, and missing docstrings.
 
-|  Folders | Files               |      Validator          | Pass    |
-|--------|----------------------------|--------------------------------|
-| comments | All files | CI python Linter | Pass |
-| followers | All files | CI python Linter | Pass |
-| learnapi | All file |  CI python Linter  | Pass |
-| likes  |  All file | CI python Linter | Pass |
-| notifications | All files | CI python Linter | Pass |
-| posts | All files | CI python Linter | Pass |
-| profiles | All files | CI python Linter | Pass |
-| reports | All files | CI python Linter | Pass |
+|  Folders      |   Files   |      Validator    | Pass |
+|---------------|-----------|-------------------|------|
+| comments      | All files | CI python Linter  | Pass |
+| followers     | All files | CI python Linter  | Pass |
+| learnapi      | All file  |  CI python Linter | Pass |
+| likes         | All file  | CI python Linter  | Pass |
+| notifications | All files | CI python Linter  | Pass |
+| posts         | All files | CI python Linter  | Pass |
+| profiles      | All files | CI python Linter  | Pass |
+| reports       | All files | CI python Linter  | Pass |
 
 
 **Bugs and their fixes**
