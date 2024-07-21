@@ -186,7 +186,7 @@ Methods:
 
 ## Database Design
 
-![ER Diagram](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/erdiagram.jpg)
+![ER Diagram]()
 
 ## Security
 
@@ -261,27 +261,27 @@ All issues were resolved with the exception of lines too long in migration files
 A warning appeared for env.py being imported but unused although this is being used in the development version, so this was ignored.
 
 
-![Post Tests](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/unit-test.PNG)
-![comments](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/comments_validator.PNG)
+![Post Tests]()
+![comments]()
 
-![followers](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/contacts_validation.PNG)
+![followers]()
 
-![learnapi](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/settings_validation.PNG)
+![learnapi]()
 
-![notifications](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/followers_validation.PNG)
+![notifications]()
 
-![likes](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/likes_validation.PNG)
+![likes]()
 
-![posts](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/posts_validator.PNG)
+![posts]()
 
-![profiles](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/profiles_validation.PNG)
+![profiles]()
 
-![reports](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/reviews_validator.PNG)
+![reports]()
       
         
 The API's were tested locally during development but the core testing was done as part of the front end repos and testing to the real API's manually via form inputs and page loads.
 
-The results can be found in [Body Doodles](https://github.com/Gareth-McGirr/body-doodles)
+The results can be found in []()
 
 **Validator Results**
 
@@ -291,7 +291,7 @@ All issues were resolved except for lines too long in migration files (since the
 
 A warning about env.py being imported but unused was ignored because it is used in the development version.
 
-!
+
 
 **Bugs and their fixes**
 
@@ -305,3 +305,84 @@ A warning about env.py being imported but unused was ignored because it is used 
 ## Version Control
 
 The site was created using Gitpod and then pushed to the remote repository 'Graciekan21' on GitHub
+The following git commands were used throughout development to push code to the remote repo:
+
+git add <file> - This command was used to add the file(s) to the staging area before they are committed.
+
+git commit -m “commit message” - This command was used to commit changes to the local repository queue ready for the final step.
+
+git push - This command was used to push all committed code to the remote repository on github.
+
+<hr>
+<br>
+
+## Heroku Deployment
+
+The site was deployed to Heroku. The steps to deploy are as follows:
+
+* Navigate to heroku and create an account
+* Click the new button in the top right corner
+* Select create new app
+* Enter app name
+* Select region and click create app
+* Click the resources tab and search for Heroku Postgres
+* Select hobby dev and continue
+* Go to the settings tab and then click reveal config vars
+* Add the following config vars:
+  * SECRET_KEY: (Your secret key)
+  * DATABASE_URL: (This should already exist)
+  * ALLOWED_HOST:
+  * CLIENT_ORIGIN: url for the client front end react application that wil be making requests to these APIs
+  * CLIENT_ORIGIN_DEV: address of the local server used to preview and test UI during development of the front end client application
+  * GOOGLE_APPLICATION_CREDENTIALS:
+  * GOOGLE_CREDENTIALS: json file with authentication keys and tokens to access the google cloud bucket where images are stored
+  * 
+
+## **Final Changes**
+
+1. Add `ALLOWED_HOSTS = ["PROJECT_NAME.herokuapp.com", "localhost"]` in **settings.py**
+2. Create a **Procfile** file in the base directory
+3. Add to **Procfile**:
+    - `release: python manage.py makemigrations && python manage.py migrate`
+    - `web: gunicorn <name>.wsgi`
+4. In your **Heroku app**: 
+   - Go to the *Deploy tab* and connect your GitHub repository
+   - Click on *Deploy Branch* at the bottom of the page
+
+<hr>
+<br>
+
+## **Cloudinary Setup**
+
+1. Log in to your [Cloudinary](https://console.cloudinary.com/) account
+2. At the dashboard, copy the link from the **API Environment variable**
+
+## **Heroku Setup**
+
+1. Log in to your [Heruko](https://www.heroku.com/) account
+2. On the dashboard click *New* - *Create new app*
+3. Give the app a unique name
+4. Select the region closest to you and click *Create app*
+5. Select your created app and open the *Settings* tab 
+6. At the *Config Vars* section click *Reveal Config Vars* and add the following:
+   - **DATABASE_URL** with the copied URL from ElephantSQL
+   - **SECRET_KEY** with your secret key
+   - **CLOUDINARY_URL** with the copied URL from Cloudinary
+   - **DISABLE_COLLECTSTATIC** with the value 1
+   - **ALLOWED_HOST** with the value of your deployed Heroku application URL
+
+
+  ## **Forking**
+
+Forking creates a copy of the project on GitHub. Follow these steps to fork this repository:
+1. Log in to your GitHub account and navigate to [LearnAPI repository]().
+2. Click the **Fork** button on the top right of the repository.
+3. You can now open the forked copy of this project as your own repository.
+4. Follow the above steps to work on the project.
+
+## Credits
+
+### Content:
+<br>
+
+I followed articles used in the walkthrough by CI in order to impement django  models API 

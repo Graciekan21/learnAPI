@@ -9,6 +9,7 @@ from rest_framework import status
 from .models import Comment
 from reports.models import Report
 
+
 class CommentList(generics.ListCreateAPIView):
     """
     List comments or create a comment if logged in.

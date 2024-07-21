@@ -24,24 +24,22 @@ from rest_framework_simplejwt.views import (
 )
 
 urlpatterns = [
-    path('', root_route),
-    path('admin/', admin.site.urls),
-    #path('api/', include('LearnAPI.urls')),
-    path('api-auth/', include('rest_framework.urls')),
+    path("", root_route),
+    path("admin/", admin.site.urls),
+    # path('api/', include('LearnAPI.urls')),
+    path("api-auth/", include("rest_framework.urls")),
     # our logout route has to be above the default one to be matched first
-    path('dj-rest-auth/logout/', logout_route),
-    path('dj-rest-auth/', include('dj_rest_auth.urls')),
-    path(
-        'dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')
-        ),
-    # file, add endpoints for obtaining and refreshing tokens.    
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('', include('profiles.urls')),
-    path('', include('posts.urls')),
-    path('', include('comments.urls')),
-    path('', include('likes.urls')),
-    path('', include('followers.urls')),
-    path('', include('notifications.urls')),
-     path('', include('reports.urls')),
+    path("dj-rest-auth/logout/", logout_route),
+    path("dj-rest-auth/", include("dj_rest_auth.urls")),
+    path("dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")),
+    # file, add endpoints for obtaining and refreshing tokens.
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("", include("profiles.urls")),
+    path("", include("posts.urls")),
+    path("", include("comments.urls")),
+    path("", include("likes.urls")),
+    path("", include("followers.urls")),
+    path("", include("notifications.urls")),
+    path("", include("reports.urls")),
 ]
