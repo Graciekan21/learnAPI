@@ -186,7 +186,7 @@ Methods:
 
 ## Database Design
 
-![DataBase Design](https://lucid.app/lucidchart/a7f04448-2b4c-43d0-bb9a-f30b26363064/edit?viewport_loc=-1730%2C-711%2C1585%2C642%2C0_0&invitationId=inv_432a3a2b-3be2-4e5e-9ef6-ac66def26e72)
+![ER Diagram](https://lucid.app/lucidchart/a7f04448-2b4c-43d0-bb9a-f30b26363064/edit?viewport_loc=-1730%2C-711%2C1585%2C642%2C0_0&invitationId=inv_432a3a2b-3be2-4e5e-9ef6-ac66def26e72)
 
 ## Security
 
