@@ -1,3 +1,4 @@
+# dependencies
 core.Microsoft*
 core.mongo*
 core.python*
@@ -5,9 +6,48 @@ env.py
 __pycache__/
 *.py[cod]
 node_modules/
+/.pnp
+.pnp.js
+
+# pyenv
+.python-version
+
+# Environments
+.DS_Store
+.env
+.venv
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# production
+/build
+
 
 # ignoring migrations
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
+
+
+# testing
+/coverage
+
+# C extensions
+*.so
+
+# Django stuff:
+*.log
+local_settings.py
 db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache

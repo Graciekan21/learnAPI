@@ -268,11 +268,12 @@ The results can be found in []()
 
 **Validator Results**
 
-All folders were checked using flake8, revealing several issues such as lines too long, blank spaces, indentation, and missing docstrings.
+All folders were checked using CI python Linter, revealing several issues such as lines too long, blank spaces, indentation, and missing docstrings.
 
-All issues were resolved except for lines too long in migration files (since these are auto-generated, they were not fixed) and the auth validator lines in settings.py, which are part of the framework and seem unbreakable.
+All issues were resolved except for lines too long in Settings.py and in env.py, files (since these are auto-generated, they were not fixed) and the auth validator lines in settings.py, is unbreakable.
 
 A warning about env.py being imported but unused was ignored because it is used in the development version.
+
 
 
 
@@ -358,7 +359,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
   ## **Forking**
 
 Forking creates a copy of the project on GitHub. Follow these steps to fork this repository:
-1. Log in to your GitHub account and navigate to [LearnAPI repository]().
+1. Log in to your GitHub account and navigate to [LearnAPI repository](https://github.com/Graciekan21/arts).
 2. Click the **Fork** button on the top right of the repository.
 3. You can now open the forked copy of this project as your own repository.
 4. Follow the above steps to work on the project.

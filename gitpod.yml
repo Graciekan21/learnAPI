@@ -1,0 +1,10 @@
+# .gitpod.yml
+
+tasks:
+  - init: echo "Initializing workspace..."
+
+vscode:
+  extensions:
+    - ms-toolsai.vscode-jupyter
+    - ms-toolsai.vscode-jupyter-cell-tags
+    - ms-toolsai.vscode-jupyter-slideshow
