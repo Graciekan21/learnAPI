@@ -1,6 +1,7 @@
 # LearnAPI
 
- LearnAPI is the backend service utilized by the [ Application](https://github.com/Graciekan21/arts).
+ LearnAPI is the backend service utilized by the [Art 
+   Application](https://github.com/Graciekan21/arts).
 <hr>                                         
 <br>
 
@@ -38,10 +39,36 @@ This project was developed using agile methodologies, delivering small features 
 All stories were assigned to epics and prioritized under the labels: Must have, Should have, and Could have, and then assigned to sprints. "Must have" stories were completed first, followed by "Should haves," and finally "Could haves." This approach ensured that all core requirements were completed first, giving the project a complete feel, with the nice-to-have features being added if there was capacity.
 
 The Kanban board can be viewed to see more information on the project cards. All stories, except for the documentation tasks, have a full set of acceptance criteria to define the functionality that marks that story as complete.
-
+All user stories can be viewed on the frontend README.  
 
 <hr>
 <br>
+
+### Epics
+
+**Setup**
+
+This Epic covers all the initial setup of the Django application and Django REST Framework in order to begin coding the features.
+
+**Posts**
+
+This Epic encompasses the creation of all API endpoints and database connections related to the CRUD functionality for user posts, including like activity.
+
+**Comments**
+
+This Epic includes the creation of all API endpoints and database connections related to the CRUD functionality for user comments on posts
+
+**Profiles**
+
+This Epic encompasses the creation of all API endpoints and database connections related to the CRUD functionality for user-created profiles, including the following functionality.
+
+**report abuse**
+
+This Epic encompasses the creation of all API endpoints and database connections related to the CRUD functionality for user-created report abuse, including the following functionality.
+
+**Notifications**
+
+This Epic encompasses the creation of all API endpoints and database connections related to the CRUD functionality for user-created notifications , including the following functionality.
 
 ### User Stories
 
@@ -49,22 +76,16 @@ The Kanban board can be viewed to see more information on the project cards. All
 
 **Setup**
 
-* As a developer, I need to create the base project setup so that I can build out the features.
+* As a developer, I need to create the base project set up so that I can build out the features.
 
-* As a developer, I need to create the Google Cloud bucket and establish the connection to the project so that static images can be uploaded by users.
+* As a developer, I need to create the google cloud bucket and create the connection to the project so that static images can be uploaded by users.
 
-* As a user, I can create a new account to access all the features available to registered users.
-
-**LearnAPI**
-
-* As a developer, I want to create API views for artists so that they are accessible from the front end.
-
-* As a developer, I want to create API views for artists so that they are accessible from the front end.
-
-**reports**
-* As a user, I want to create a report for a post
+* As a user I can create a new account so that I can access all the features for signed up users
+   
+**reports**   
+        
 * As a user, i want to create a form to report a postS
-
+     
 **Posts**
 
 * As a user, I want to be able to view, edit, or delete a post.
@@ -81,47 +102,53 @@ The Kanban board can be viewed to see more information on the project cards. All
 
 User Story:
 
-`As a user, I can create a new account to access all the features available to signed-up users.`
+`As a developer, I need to create the base project set up so that I can build out the features.`
 
 Implementation:
 
 The base project was created, and a virtual environment was set up with all necessary packages installed and frozen into the requirements file. The settings were also configured to hide any secret variables and differentiate between development and production environments.
 
 User Story:
-
-`As a developer, I need to create the Google Cloud bucket and establish the connection to the project so that static images can be uploaded by users.`
-       
-User Story:
-`As a user, I can create a new account so that I can access all the features for signed-up users.`
+    
 
 Implementation:
+
 Django Rest Framework and dj_rest_auth were installed and added to the URL patterns and site packages to utilize their built-in authentication system.
 
 User Story:
-`As a developer, I want to create API views for artists so that they are available to the front end`.
 
-Implementation:
-Endpoint: /arts/
+`As a user I can create a new account so that I can access all the features for signed up users`
 
+Implementation:     
+
+Django rest framework and dj_rest_auth were installed and added to the url patterns and site packages to make use of their built in authentication system.
+
+User Story: 
+
+`As a developer, I want to create api views for artists so that they are available to the front end`
+
+Implementation:     
+     
+Endpoint: /artists/        
 Methods:
-* POST - Used to create an arts
-* GET - Used to retrieve a list of arts
+* POST - Used to create an users
+* GET - Used to retrieve a list of users
 
 Endpoint: /arts/<int:pk>/
 
 Methods:
-* GET - Used to view single art profile
-* PUT - Used to update an art profile
-* DELETE - Used to delete an art profile
+* GET - Used to view single users profile
+* PUT - Used to update an users profile
+* DELETE - Used to delete an users profile
 
 User Story:
-
+             
 
 `As a developer, I want to create a contact model and API view so that users can contact the site owner with issues`
-
+     
 Implementation:
 
-Endpoint: //
+Endpoint: /notifications/
 
 Methods:
 * POST - Used to create notifications request
@@ -185,20 +212,20 @@ Methods:
 * DELETE - Used to delete a profile
 
 ## Database Design
+
 I used Lucid to generate the database diagrams
 ![lucid](https://lucid.app/lucidchart)
 
-![database Diagram](/readme/database_daigrams.png)
+![ER database Diagram](/readme/database_daigrams.png)
 
 ## Security
 
 A permissions class named IsOwnerOrReadOnly was added to ensure that only the users who create the content can edit or delete it.
 
 GCP IAM permissions for the service account were configured for create and read-only access to ensure that only the minimum necessary permissions were granted.
-
-
-## Technologies
-
+          
+## Technologies      
+           
 * Django
     * Main framework used for application creation
 * Django REST Framework
@@ -244,7 +271,7 @@ GCP IAM permissions for the service account were configured for create and read-
 * whitenoise==6.7.0
 
 
-    * For creating the Python Json Web Tokens for authentication
+* For creating the Python Json Web Tokens for authentication
 
 Installed as package dependcies with above installations:
 
@@ -253,47 +280,44 @@ Installed as package dependcies with above installations:
 
 ## Testing
 
+Unit tests in posts app
+
+![Post Tests]()
+
+The API's were tested locally during development but the core testing was done as part of the front end repos and testing to the real API's manually via form inputs and page loads.
+
+The results can be found in [LearnAPI](https://github.com/Graciekan21/learnAPI)
 
 **Validator Results**
 
-All folders were run through . Several issues appeared with various reasons, lines too long, blank spaces, indentation, white space and expect 2 lines.
+All folders were run through pep8ci. Several issues appeared with various reasons, lines too long, blank spaces, indentation, white space and expect 2 lines.
 
 All issues were resolved with the exception of lines too long in migration files (these are auto generated so I did not fix) and the auth validator lines in the settings.py which seem to be unbreakable but are framework code.
 
 A warning appeared for env.py being imported but unused although this is being used in the development version, so this was ignored.
       
- 
-        
-The API's were tested locally during development but the core testing was done as part of the front end repos and testing to the real API's manually via form inputs and page loads.
+![comments](/main/readme/comments_validator.PNG)
 
-The results can be found in [Graciekan-learnapi](https://github.com/Graciekan21/learnAPI)
+![learnapi](/main/readme/settings_validation.PNG)
 
-**Validator Results**
+![followers](/main/readme/followers_validation.PNG)
 
-All folders were checked using CI python Linter, revealing several issues such as lines too long, blank spaces, indentation, and missing docstrings.
+![likes](/main/readme/likes_validation.PNG)
 
-|  Folders      |   Files   |      Validator    | Pass |
-|---------------|-----------|-------------------|------|
-| comments      | All files | CI python Linter  | Pass |
-| followers     | All files | CI python Linter  | Pass |
-| learnapi      | All file  | CI python Linter  | Pass |
-| likes         | All file  | CI python Linter  | Pass |
-| notifications | All files | CI python Linter  | Pass |
-| posts         | All files | CI python Linter  | Pass |
-| profiles      | All files | CI python Linter  | Pass |
-| reports       | All files | CI python Linter  | Pass |
+![posts](/main/readme/posts_validator.PNG)
 
+![profiles](/main/readme/profiles_validation.PNG)
+
+![notifications](/main/readme/notifications_validation.PNG)
+
+![report abuse](/main/readme/profiles_validation.PNG)
 
 **Bugs and their fixes**
+         
 All issues were resolved except for lines too long in Settings.py and in env.py, files (since these are auto-generated, they were not fixed) and the auth validator lines in settings.py, is unbreakable.
-
+    
 A warning about env.py being imported but unused was ignored because it is used in the development version.
 
-![settings.py](/readme/settings_validation.png)
-![env.py](/readme/env_validation.png)
- 
- There is 2 errors i see in the Terminal PROBLEMS but i added a gitpod.yml file but it don't change anything,i followed the the intrustion in the terminal
-![terminal error](/readme/terminal_error.png)
 <hr>
 <br>
 
@@ -301,15 +325,16 @@ A warning about env.py being imported but unused was ignored because it is used 
 
 ## Version Control
 
-The site was created using Gitpod and then pushed to the remote repository 'Graciekan21' on GitHub
+The site was created using the Gitpod editor and pushed to github to the remote repository ‘Graciekan21’.
+
 The following git commands were used throughout development to push code to the remote repo:
 
-git add <file> - This command was used to add the file(s) to the staging area before they are committed.
+```git add <file>``` - This command was used to add the file(s) to the staging area before they are committed.
 
-git commit -m “commit message” - This command was used to commit changes to the local repository queue ready for the final step.
+```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.
 
-git push - This command was used to push all committed code to the remote repository on github.
-
+```git push``` - This command was used to push all committed code to the remote repository on github.
+    
 <hr>
 <br>
 
@@ -333,53 +358,95 @@ The site was deployed to Heroku. The steps to deploy are as follows:
   * CLIENT_ORIGIN_DEV: address of the local server used to preview and test UI during development of the front end client application
   * GOOGLE_APPLICATION_CREDENTIALS:
   * GOOGLE_CREDENTIALS: json file with authentication keys and tokens to access the google cloud bucket where images are stored
-  * 
+  * cloudinary: name of the bucket to upload images to.
 
-## **Final Changes**
-
-1. Add `ALLOWED_HOSTS = ["PROJECT_NAME.herokuapp.com", "localhost"]` in **settings.py**
-2. Create a **Procfile** file in the base directory
-3. Add to **Procfile**:
-    - `release: python manage.py makemigrations && python manage.py migrate`
-    - `web: gunicorn <name>.wsgi`
-4. In your **Heroku app**: 
-   - Go to the *Deploy tab* and connect your GitHub repository
-   - Click on *Deploy Branch* at the bottom of the page
+* Click the deploy tab
+* Scroll down to Connect to GitHub and sign in / authorize when prompted
+* In the search box, find the repositoy you want to deploy and click connect
+* Scroll down to Manual deploy and choose the main branch
+* Click deploy
 
 <hr>
 <br>
 
-## **Cloudinary Setup**
+## Google Cloud Storage
 
-1. Log in to your [Cloudinary](https://console.cloudinary.com/) account
-2. At the dashboard, copy the link from the **API Environment variable**
+To set up bucket and service account. Please see - [Medium Article](https://medium.com/@mohammedabuiriban/how-to-use-google-cloud-storage-with-django-application-ff698f5a740f). The service account credentials will be needed for deployment. xxxxx
 
-## **Heroku Setup**
+**Code** 
 
-1. Log in to your [Heruko](https://www.heroku.com/) account
-2. On the dashboard click *New* - *Create new app*
-3. Give the app a unique name
-4. Select the region closest to you and click *Create app*
-5. Select your created app and open the *Settings* tab 
-6. At the *Config Vars* section click *Reveal Config Vars* and add the following:
-   - **DATABASE_URL** with the copied URL from ElephantSQL
-   - **SECRET_KEY** with your secret key
-   - **CLOUDINARY_URL** with the copied URL from Cloudinary
-   - **DISABLE_COLLECTSTATIC** with the value 1
-   - **ALLOWED_HOST** with the value of your deployed Heroku application URL
+Packages needed for deployment:
 
+* django-storages[cloudinary]
+* Pillow
 
-  ## **Forking**
+Create a .profile file with the following line inside:
 
-Forking creates a copy of the project on GitHub. Follow these steps to fork this repository:
-1. Log in to your GitHub account and navigate to [LearnAPI repository](https://github.com/Graciekan21/arts).
-2. Click the **Fork** button on the top right of the repository.
-3. You can now open the forked copy of this project as your own repository.
-4. Follow the above steps to work on the project.
+```echo ${GOOGLE_CREDENTIALS} > /app/ga-creds.json```
+
+This line is used to instruct heroku that the GOOGLE_CREDENTIALS var is called ga-creds.json
+
+**Heroku**
+
+1. Log in to heroku and open the boody-doodle-api app
+2. Click settings
+3. Click Config vars
+4. Add the following variables:
+
+<hr>
+<br>
+
+### Run Locally 
+
+Navigate to the GitHub Repository you want to clone to use locally:
+
+- Click on the code drop down button
+- Click on HTTPS
+- Copy the repository link to the clipboard
+- Open your IDE of choice (git must be installed for the next steps)
+- Type git clone copied-git-url into the IDE terminal
+
+The project will now have been cloned on your local machine for use.
+
+In order to run, you will need to create an env.py file and add the config vars as used in heroku steps above.
+
+[Create Environment Variables locally](https://able.bio/rhett/how-to-set-and-get-environment-variables-in-python--274rgt5#:~:text=To%20set%20and%20get%20environment%20variables%20in%20Python%20you%20can,Get%20environment%20variables%20USER%20%3D%20os.)
+
+```
+python -m venv venv \
+venv/Scripts/activate \
+pip install -r requirements.txt
+```
+```
+python -m venv venv \
+venv/Scripts/activate \
+pip install -r requirements.txt
+```
+
+### Forking
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+- Navigate to the GitHub Repository you want to fork.
+
+- On the top right of the page under the header, click the fork button.
+
+- This will create a duplicate of the full project in your GitHub Repository.
 
 ## Credits
 
 ### Content:
 <br>
 
-I followed articles used in the walkthrough by CI in order to impement django  models API 
+This article was followed in order to implement google cloud storage for static image hosting.
+* [how-to-use-google-cloud-storage-with-django-application](https://medium.com/@mohammedabuiriban/how-to-use-google-cloud-storage-with-django-application-ff698f5a740f)
+<br>
+<br>
+
+This article was followed in order to implement google cloud storage for static image hosting.
+* [how-to-use-google-cloud-storage-with-django-application](https://medium.com/@mohammedabuiriban/how-to-use-google-cloud-storage-with-django-application-ff698f5a740f)
+<br>
+<br>
+
+This  article was followed in order to implement average rating calculations in the correct way
+* [How to calculate average of some field in Dango models and send it to rest API?](https://django.fun/en/qa/16172/)

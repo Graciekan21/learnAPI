@@ -213,7 +213,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         "NAME": 
-        "django.contrib.auth.NumericPasswordValidator",
+        "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
