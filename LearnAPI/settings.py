@@ -84,37 +84,31 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     os.environ.get("CLIENT_ORIGIN"),
     os.environ.get("CLIENT_ORIGIN_DEV"),
-    "https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net/",
+    "8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net",
+    "8000-graciekan21-learnapi-rr4rn6x0u7r.ws.codeinstitute-ide.net",
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
-CORS_ALLOWED_ORIGINS = []
 
-if "CLIENT_ORIGIN" in os.environ:
-    CORS_ALLOWED_ORIGINS.append(os.environ.get("CLIENT_ORIGIN"))
-
-if "CLIENT_ORIGIN_DEV" in os.environ:
-    CORS_ALLOWED_ORIGINS.append(os.environ.get("CLIENT_ORIGIN_DEV"))
-
-if "CLIENT ORIGIN" in os.environ:
-    CORS_ALLOWED_ORIGINS = [os.environ.get("CLIENT_ORIGIN")]
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+if 'CLIENT_ORIGIN_DEV' in os.environ:    
+    CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*\.codeinstitute-ide\.net$",]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net",
-]
-
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://.*I.codeinstitute-ide\.net$",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
 
 # Example of allowing all origins with credentials
 # Ensure this aligns with your security requirements
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
