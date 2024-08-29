@@ -10,5 +10,9 @@ class NotificationViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Notification.objects.filter(user=self.request.user).order_by
-        ('-timestamp')
+        try:
+            return Notification.objects.filter(user=self.request.user).order_by('-timestamp')
+        except Exception as e:
+            #print(f"Error fetching notifications: {e}")
+            return Notification.objects.none()
+
