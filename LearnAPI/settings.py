@@ -95,12 +95,14 @@ if RENDER_EXTERNAL_HOSTNAME:
 
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [
+        'https://arts-afro-4626ca68624f.herokuapp.com',
         os.environ.get('CLIENT_ORIGIN')
     ]
 if 'CLIENT_ORIGIN_DEV' in os.environ:    
     CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*\.codeinstitute-ide\.net$",]
 
 CSRF_TRUSTED_ORIGINS = [
+    'https://arts-afro-4626ca68624f.herokuapp.com',
     "https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net",
 ]
 
