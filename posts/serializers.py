@@ -5,7 +5,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from notifications.models import Notification
 from django.contrib.auth.models import User
-
+from profiles.models import Profile
 
 class PostSerializer(serializers.ModelSerializer):
     """
@@ -58,12 +58,13 @@ class PostSerializer(serializers.ModelSerializer):
 
 @receiver(post_save, sender=Post)
 def create_post_notifications(sender, instance, created, **kwargs):
-    if created:
-        users = User.objects.all()  # Replace with how you fetch your users
-        for user in users:
+       if created:
+        profiles_with_notifications = Profile.objects.filter(notification_on=True).select_related('owner')
+
+        for profile in profiles_with_notifications:
+            user = profile.owner
             Notification.objects.create(
                 user=user,
-                message=f'New post: {instance.title}',
+                message=f'{instance.title}',
                 post_id=instance.id
-                # Include the post_id when creating the notification
             )
