@@ -59,7 +59,10 @@ class ProfileToggleNotifications(generics.RetrieveUpdateAPIView):
 
     def update(self, request, *args, **kwargs):
         # Get the profile instance
-        profile = self.get_object()
+        try:
+            profile = Profile.objects.get(owner=request.user)
+        except Profile.DoesNotExist:
+            return Response({"detail": "Profile not found."}, status=status.HTTP_404_NOT_FOUND)
         
         # Toggle the 'notification_on' field
         profile.notification_on = not profile.notification_on
