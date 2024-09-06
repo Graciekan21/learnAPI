@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.generics import DestroyAPIView
 from .models import Notification
 from .serializers import NotificationSerializer
-
+from rest_framework.response import Response
 
 class NotificationViewSet(viewsets.ModelViewSet):
     serializer_class = NotificationSerializer
