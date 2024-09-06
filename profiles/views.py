@@ -51,7 +51,7 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
 
 class ProfileToggleNotifications(generics.RetrieveUpdateAPIView):
     """
-    Toggle the 'notification_on' status for a profile if you're the owner.
+    Toggle the 'notifications_on' status for a profile if you're the owner.
     """
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
@@ -65,8 +65,8 @@ class ProfileToggleNotifications(generics.RetrieveUpdateAPIView):
         except Profile.DoesNotExist:
             return Response({"detail": "Profile not found."}, status=status.HTTP_404_NOT_FOUND)
         
-        # Toggle the 'notification_on' field
-        profile.notification_on = not profile.notification_on
+        # Toggle the 'notifications_on' field
+        profile.notifications_on = not profile.notifications_on
         profile.save()
 
         # Serialize the updated profile
