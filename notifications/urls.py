@@ -9,5 +9,5 @@ router.register(r'mynotifications', NotificationViewSet,
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('notifications/delete/<int:id>/', NotificationDelete.as_view()),
+    path('notifications/delete/<int:mid>/', NotificationDelete.as_view()),
 ]

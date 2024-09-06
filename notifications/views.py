@@ -22,9 +22,9 @@ class NotificationDelete(DestroyAPIView):
     queryset = Notification.objects.all()
     lookup_field = 'id'
 
-    def delete(self, request, id, *args, **kwargs):
+    def delete(self, request, mid, *args, **kwargs):
         try:
-            notification = self.queryset.get(id=id, user=request.user)
+            notification = self.queryset.get(id=mid, user=request.user)
             notification.delete()  
             return Response({"message": "Notification deleted successfully.id="+str(id)+"__ user_id="+str(request.user.id)}, status=status.HTTP_200_OK)
         except Notification.DoesNotExist:
