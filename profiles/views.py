@@ -54,7 +54,7 @@ class CurrentUserProfile(APIView):
 
     def get(self, request):
         profile = Profile.objects.get(owner=request.user)
-        serializer = ProfileSerializer(profile)
+        serializer_class = ProfileSerializer(profile, context={'request': request}) 
         return Response(serializer.data)
 
 class ProfileToggleNotifications(generics.RetrieveUpdateAPIView):
@@ -67,7 +67,6 @@ class ProfileToggleNotifications(generics.RetrieveUpdateAPIView):
     serializer_class = ProfileSerializer
 
     def post(self, request, *args, **kwargs):
-        # Get the profile instance
         try:
             profile = Profile.objects.get(owner=request.user)
         except Profile.DoesNotExist:
