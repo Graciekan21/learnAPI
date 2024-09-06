@@ -49,6 +49,14 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
 
+class CurrentUserProfile(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
+
+    def get(self, request):
+        profile = Profile.objects.get(owner=request.user)
+        serializer = ProfileSerializer(profile)
+        return Response(serializer.data)
+
 class ProfileToggleNotifications(generics.RetrieveUpdateAPIView):
     """
     Toggle the 'notifications_on' status for a profile if you're the owner.
