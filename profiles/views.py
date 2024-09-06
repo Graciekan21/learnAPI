@@ -48,3 +48,24 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
         following_count=Count('owner__following', distinct=True)
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
+
+class ProfileToggleNotifications(generics.RetrieveUpdateAPIView):
+    """
+    Toggle the 'notification_on' status for a profile if you're the owner.
+    """
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+    def update(self, request, *args, **kwargs):
+        # Get the profile instance
+        profile = self.get_object()
+        
+        # Toggle the 'notification_on' field
+        profile.notification_on = not profile.notification_on
+        profile.save()
+
+        # Serialize the updated profile
+        serializer = self.get_serializer(profile)
+        
+        return Response(serializer.data, status=status.HTTP_200_OK)
