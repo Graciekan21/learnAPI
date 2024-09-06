@@ -59,8 +59,8 @@ class PostSerializer(serializers.ModelSerializer):
 @receiver(post_save, sender=Post)
 def create_post_notifications(sender, instance, created, **kwargs):
        if created:
-        profiles_with_notifications = Profile.objects.filter(notification_on=True).select_related('owner')
-
+        profiles_with_notifications = Profile.objects.filter(notifications_on=True).select_related('owner')
+        print(profiles_with_notifications)
         for profile in profiles_with_notifications:
             user = profile.owner
             Notification.objects.create(
