@@ -19,15 +19,14 @@ class NotificationViewSet(viewsets.ModelViewSet):
 
 class NotificationDelete(DestroyAPIView):
     permission_classes = [IsAuthenticated]
-    queryset = Notification.objects.all()
-    lookup_field = 'id'
 
     def delete(self, request, mid, *args, **kwargs):
         try:
-            notification = self.queryset.get(id=mid, user=request.user)
-            notification.delete()  
-            return Response({"message": "Notification deleted successfully."}, status=status.HTTP_200_OK)
-        except Notification.DoesNotExist:
-            return Response({"error": "Notification not found."}, status=status.HTTP_404_NOT_FOUND)
+            queryset = Notification.objects.filter(id=mid, user=request.user)
+            if queryset.exists():
+                queryset.delete()
+                return Response({"message": "Notification deleted successfully."}, status=status.HTTP_200_OK)
+            else:
+                return Response({"error": "Notification not found."}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
