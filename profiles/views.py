@@ -54,7 +54,7 @@ class CurrentUserProfile(APIView):
 
     def get(self, request):
         profile = Profile.objects.get(owner=request.user)
-        serializer_class = ProfileSerializer(profile, context={'request': request}) 
+        serializer = ProfileSerializer(profile, context={'request': request}) 
         return Response(serializer.data)
 
 class ProfileToggleNotifications(generics.RetrieveUpdateAPIView):
