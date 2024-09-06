@@ -53,11 +53,12 @@ class ProfileToggleNotifications(generics.RetrieveUpdateAPIView):
     """
     Toggle the 'notification_on' status for a profile if you're the owner.
     """
-    permission_classes = [IsOwnerOrReadOnly]
+
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
-    def update(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         # Get the profile instance
         try:
             profile = Profile.objects.get(owner=request.user)
