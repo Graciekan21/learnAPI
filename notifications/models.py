@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from posts.models import Post
 class Notification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    by = models.TextField(blank=True)
     message = models.CharField(max_length=255)
     is_read = models.BooleanField(default=False)
     post= models.ForeignKey(Post, on_delete=models.CASCADE, related_name='notifications')
