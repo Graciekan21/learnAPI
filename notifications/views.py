@@ -5,6 +5,7 @@ from rest_framework.generics import DestroyAPIView
 from .models import Notification
 from .serializers import NotificationSerializer
 from rest_framework.response import Response
+from LearnAPI.permissions import IsOwnerOrReadOnly
 
 class NotificationViewSet(viewsets.ModelViewSet):
     serializer_class = NotificationSerializer
