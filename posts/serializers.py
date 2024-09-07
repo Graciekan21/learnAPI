@@ -57,14 +57,15 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 @receiver(post_save, sender=Post)
-def create_post_notifications(sender, instance, created, **kwargs):
+def create_post_notifications(self,sender, instance, created, **kwargs):
+       myuser = self.context['request'].user.username
        if created:
         profiles_with_notifications = Profile.objects.filter(notifications_on=True).select_related('owner')
         for profile in profiles_with_notifications:
             user = profile.owner
             Notification.objects.create(
                 user=user,
-                by=instance.user.username,
+                by=myuser,
                 message=f'{instance.title}',
                 post_id=instance.id
             )
