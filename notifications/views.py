@@ -8,7 +8,7 @@ from rest_framework.response import Response
 
 class NotificationViewSet(viewsets.ModelViewSet):
     serializer_class = NotificationSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated,IsOwnerOrReadOnly]
 
     def get_queryset(self):
         try:
@@ -18,11 +18,11 @@ class NotificationViewSet(viewsets.ModelViewSet):
             return Notification.objects.none()
 
 class NotificationDelete(DestroyAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated,IsOwnerOrReadOnly]
 
     def delete(self, request, mid, *args, **kwargs):
         try:
-            queryset = Notification.objects.filter(id=mid, user=request.user)
+            queryset = Notification.objects.filter(id=mid, user=self.request.user)
             if queryset.exists():
                 queryset.delete()
                 return Response({"message": "Notification deleted successfully."}, status=status.HTTP_200_OK)
