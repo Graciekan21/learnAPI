@@ -34,7 +34,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
-    "DEFAULT_PAGINATION_CLASS": 
+    "DEFAULT_PAGINATION_CLASS":
         "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
     "DATETIME_FORMAT": "%d %b %y",
@@ -93,16 +93,18 @@ if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
-if 'CLIENT_ORIGIN' in os.environ:
+if "CLIENT_ORIGIN" in os.environ:
     CORS_ALLOWED_ORIGINS = [
-        'https://arts-afro-4626ca68624f.herokuapp.com',
-        os.environ.get('CLIENT_ORIGIN')
+        "https://arts-afro-4626ca68624f.herokuapp.com",
+        os.environ.get("CLIENT_ORIGIN"),
     ]
-if 'CLIENT_ORIGIN_DEV' in os.environ:    
-    CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*\.codeinstitute-ide\.net$",]
+if "CLIENT_ORIGIN_DEV" in os.environ:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^https://.*\.codeinstitute-ide\.net$",
+    ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://arts-afro-4626ca68624f.herokuapp.com',
+    "https://arts-afro-4626ca68624f.herokuapp.com",
     "https://8000-graciekan21-learnapi-uh3mpkq66ly.ws.codeinstitute-ide.net",
 ]
 
@@ -187,8 +189,7 @@ if "DEV" in os.environ:
         }
     }
 else:
-    DATABASES = {"default": dj_database_url.parse(os.environ.get
-                 ("DATABASE_URL"))}
+    DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 
 # Password validation
@@ -196,20 +197,20 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": 
-        "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME":
+    "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        "NAME": 
-        "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME":
+            "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        "NAME": 
-        "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME":
+            "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        "NAME": 
-        "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME":
+            "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 

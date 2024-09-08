@@ -14,26 +14,27 @@ class ProfileList(generics.ListAPIView):
     List all profiles.
     No create view as profile creation is handled by django signals.
     """
+
     queryset = Profile.objects.annotate(
-        posts_count=Count('owner__post', distinct=True),
-        followers_count=Count('owner__followed', distinct=True),
-        following_count=Count('owner__following', distinct=True)
-    ).order_by('-created_at')
+        posts_count=Count("owner__post", distinct=True),
+        followers_count=Count("owner__followed", distinct=True),
+        following_count=Count("owner__following", distinct=True),
+    ).order_by("-created_at")
     serializer_class = ProfileSerializer
     filter_backends = [
         filters.OrderingFilter,
         DjangoFilterBackend,
     ]
     filterset_fields = [
-        'owner__following__followed__profile',
-        'owner__followed__owner__profile',
+        "owner__following__followed__profile",
+        "owner__followed__owner__profile",
     ]
     ordering_fields = [
-        'posts_count',
-        'followers_count',
-        'following_count',
-        'owner__following__created_at',
-        'owner__followed__created_at',
+        "posts_count",
+        "followers_count",
+        "following_count",
+        "owner__following__created_at",
+        "owner__followed__created_at",
     ]
 
 
@@ -41,28 +42,33 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     """
     Retrieve or update a profile if you're the owner.
     """
+
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
-        posts_count=Count('owner__post', distinct=True),
-        followers_count=Count('owner__followed', distinct=True),
-        following_count=Count('owner__following', distinct=True)
-    ).order_by('-created_at')
+        posts_count=Count("owner__post", distinct=True),
+        followers_count=Count("owner__followed", distinct=True),
+        following_count=Count("owner__following", distinct=True),
+    ).order_by("-created_at")
     serializer_class = ProfileSerializer
 
+
 class CurrentUserProfile(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
 
     def get(self, request):
         profile = Profile.objects.get(owner=request.user)
-        serializer = ProfileSerializer(profile, context={'request': request}) 
+        serializer = ProfileSerializer(profile, context={"request": request})
         return Response(serializer.data)
+
 
 class ProfileToggleNotifications(generics.RetrieveUpdateAPIView):
     """
     Toggle the 'notifications_on' status for a profile if you're the owner.
     """
 
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
@@ -70,13 +76,16 @@ class ProfileToggleNotifications(generics.RetrieveUpdateAPIView):
         try:
             profile = Profile.objects.get(owner=request.user)
         except Profile.DoesNotExist:
-            return Response({"detail": "Profile not found."}, status=status.HTTP_404_NOT_FOUND)
-        
+            return Response(
+                {"detail": "Profile not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
         # Toggle the 'notifications_on' field
         profile.notifications_on = not profile.notifications_on
         profile.save()
 
         # Serialize the updated profile
         serializer = self.get_serializer(profile)
-        
+
         return Response(serializer.data, status=status.HTTP_200_OK)

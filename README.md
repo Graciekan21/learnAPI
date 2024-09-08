@@ -41,6 +41,7 @@ All stories were assigned to epics and prioritized under the labels: Must have, 
 The Kanban board can be viewed to see more information on the project cards. All stories, except for the documentation tasks, have a full set of acceptance criteria to define the functionality that marks that story as complete.
 All user stories can be viewed on the frontend README.  
 
+![Kanban](/readme/kanban%20(2).png)
 <hr>
 <br>
 
@@ -280,12 +281,10 @@ Installed as package dependcies with above installations:
 
 ## Testing
 
-Unit tests in posts app
-
-![Post Tests]()
-
+Unit tests 
+       
 The API's were tested locally during development but the core testing was done as part of the front end repos and testing to the real API's manually via form inputs and page loads.
-
+    
 The results can be found in [LearnAPI](https://github.com/Graciekan21/learnAPI)
 
 **Validator Results**

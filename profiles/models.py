@@ -9,13 +9,13 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
-    notifications_on=models.BooleanField(default=True) 
+    notifications_on = models.BooleanField(default=True)
     image = models.ImageField(
-       upload_to='images/', default='images/default_profile_usxtbx.jpg'
+        upload_to="images/", default="images/default_profile_usxtbx.jpg"
     )
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ["-created_at"]
 
     def __str__(self):
         return f"{self.owner}'s profile"
