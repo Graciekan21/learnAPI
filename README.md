@@ -295,21 +295,21 @@ All issues were resolved with the exception of lines too long in migration files
 
 A warning appeared for env.py being imported but unused although this is being used in the development version, so this was ignored.
       
-![comments](/main/readme/comments_validator.PNG)
+![comments](/readme/comments_validation%20(2).png)
 
-![learnapi](/main/readme/settings_validation.PNG)
+![learnapi](/readme/settings_validation.png)
 
-![followers](/main/readme/followers_validation.PNG)
+![followers](/readme/followers.png)
 
-![likes](/main/readme/likes_validation.PNG)
+![likes](/readme/likes_validation.png)
 
-![posts](/main/readme/posts_validator.PNG)
+![posts](/readme/posts_validator.png)
 
-![profiles](/main/readme/profiles_validation.PNG)
+![profiles](/readme/profiles_validation.png)
 
-![notifications](/main/readme/notifications_validation.PNG)
+![notifications](/readme/notifications_validation%20(2).png)
 
-![report abuse](/main/readme/profiles_validation.PNG)
+![report abuse](/readme/report_validations.png)
 
 **Bugs and their fixes**
          
