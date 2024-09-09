@@ -298,11 +298,11 @@ A warning appeared for env.py being imported but unused although this is being u
 
 ![learnapi](/readme/settings_validation.png)
 
-![followers](/readme/followers.png)
+![followers](/readme/followers_validation.png)
 
 ![likes](/readme/likes_validation.png)
 
-![posts](/readme/posts_validator.png)
+![posts](/readme/posts_validation.png)
 
 ![profiles](/readme/profiles_validation.png)
 
@@ -312,10 +312,9 @@ A warning appeared for env.py being imported but unused although this is being u
 
 **Bugs and their fixes**
          
-All issues were resolved except for lines too long in Settings.py and in env.py, files (since these are auto-generated, they were not fixed) and the auth validator lines in settings.py, is unbreakable.
-    
-A warning about env.py being imported but unused was ignored because it is used in the development version.
-
+All issues were resolved except for lines too long in Settings.py, notifications, files (since these are auto-generated, they were not fixed) and the auth validator lines in settings.py, is unbreakable.    
+                    
+                    
 <hr>
 <br>
 
