@@ -19,7 +19,6 @@
 * [Deployment](#Deployment)
     * [Version Control](#Version-Control)
     * [Heroku Deployment](#Heroku-Deployment)
-    * [GCP](#Google-Cloud-Platform)
     * [Run Locally](#Run-Locally)
     * [Fork Project](#Fork-Project)
 * [Credits](#Credits)
@@ -322,7 +321,7 @@ A warning about env.py being imported but unused was ignored because it is used 
 
 ## Deployment
 
-## Version Control
+## Gitpod Editor
 
 The site was created using the Gitpod editor and pushed to github to the remote repository ‘Graciekan21’.
 
@@ -357,7 +356,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
   * CLIENT_ORIGIN_DEV: address of the local server used to preview and test UI during development of the front end client application
   * GOOGLE_APPLICATION_CREDENTIALS:
   * GOOGLE_CREDENTIALS: json file with authentication keys and tokens to access the google cloud bucket where images are stored
-  * cloudinary: name of the bucket to upload images to.
+  * cloudinary: name of the storage to upload images to.
 
 * Click the deploy tab
 * Scroll down to Connect to GitHub and sign in / authorize when prompted
@@ -367,24 +366,8 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 
 <hr>
 <br>
-
-## Google Cloud Storage
-
-To set up bucket and service account. Please see - [Medium Article](https://medium.com/@mohammedabuiriban/how-to-use-google-cloud-storage-with-django-application-ff698f5a740f). The service account credentials will be needed for deployment. xxxxx
-
-**Code** 
-
-Packages needed for deployment:
-
-* django-storages[cloudinary]
-* Pillow
-
-Create a .profile file with the following line inside:
-
-```echo ${GOOGLE_CREDENTIALS} > /app/ga-creds.json```
-
-This line is used to instruct heroku that the GOOGLE_CREDENTIALS var is called ga-creds.json
-
+                               
+        
 **Heroku**
 
 1. Log in to heroku and open the boody-doodle-api app
@@ -409,7 +392,7 @@ The project will now have been cloned on your local machine for use.
 
 In order to run, you will need to create an env.py file and add the config vars as used in heroku steps above.
 
-[Create Environment Variables locally](https://able.bio/rhett/how-to-set-and-get-environment-variables-in-python--274rgt5#:~:text=To%20set%20and%20get%20environment%20variables%20in%20Python%20you%20can,Get%20environment%20variables%20USER%20%3D%20os.)
+[Create local Environment ](https://codeinstitute-ide.net/workspaces)
 
 ```
 python -m venv venv \
@@ -434,18 +417,16 @@ Most commonly, forks are used to either propose changes to someone else's projec
 
 ## Credits
 
-### Content:
-<br>
+Alan, Sean, Thomas, Roo, John, Roman, Rebecca and at Code Institute's tutor support for the help and guidance with my implementing brain melts and also for the  database reset guidance.
 
-This article was followed in order to implement google cloud storage for static image hosting.
-* [how-to-use-google-cloud-storage-with-django-application](https://medium.com/@mohammedabuiriban/how-to-use-google-cloud-storage-with-django-application-ff698f5a740f)
-<br>
-<br>
+[CodeInstitute](https://learn.codeinstitute.net/courses/) CodeInstitute
 
-This article was followed in order to implement google cloud storage for static image hosting.
-* [how-to-use-google-cloud-storage-with-django-application](https://medium.com/@mohammedabuiriban/how-to-use-google-cloud-storage-with-django-application-ff698f5a740f)
-<br>
-<br>
-
+### Content:    
+         
+    
+                                  
+<br>    
+<br>     
+                         
 This  article was followed in order to implement average rating calculations in the correct way
 * [How to calculate average of some field in Dango models and send it to rest API?](https://django.fun/en/qa/16172/)
