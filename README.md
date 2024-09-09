@@ -214,7 +214,7 @@ Methods:
 ## Database Design
 
 I used Lucid to generate the database diagrams
-![lucid](https://lucid.app/lucidchart)
+![lucid](https://www.lucidchart.com/)
 
 ![ER database Diagram](/readme/database_daigrams.png)
 
